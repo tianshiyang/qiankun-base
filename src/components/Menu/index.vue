@@ -27,7 +27,7 @@
               <span>Vue2 页面</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item index="2-1" route="/vue2/pageOne">vue2Page1</el-menu-item>
+              <el-menu-item index="2-1" route="/vue2">vue2Page1</el-menu-item>
               <el-menu-item index="2-2" route="/vue3">item two</el-menu-item>
             </el-menu-item-group>
           </el-sub-menu>
@@ -51,9 +51,9 @@ import { useRoute } from 'vue-router'
 const route = useRoute()
 
 const handleOpen = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
+  // console.log(key, keyPath)
 }
 const handleClose = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
+  // console.log(key, keyPath)
 }
 </script>
