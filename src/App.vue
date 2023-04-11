@@ -1,5 +1,4 @@
 <template>
-  <!-- <router-view /> -->
   <Menu></Menu>
 </template>
 

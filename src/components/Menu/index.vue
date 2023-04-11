@@ -39,12 +39,16 @@
           <el-button type="danger" @click="changeMainState">改变数据</el-button>
         </div>
         <div id="sub-app"></div>
-        <router-view></router-view>
+        <router-view #default="{ Component }">
+          <keep-alive :include="['qiankunHome']">
+            <component :is="Component"></component>
+          </keep-alive>
+        </router-view>
       </el-main>
     </el-container>
 </template>
 
-<script lang="ts" setup name="index">
+<script lang="ts" setup>
 import { Location } from '@element-plus/icons-vue'
 import actions from "@/qiankun/actions"
 import { ref } from "vue"
