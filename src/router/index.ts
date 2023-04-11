@@ -1,10 +1,8 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import Menu from "@/components/Menu/index.vue"
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     redirect: '/qiankun-home',
-    // component: Menu,
     children: [
       {
         path: "qiankun-home",

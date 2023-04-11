@@ -5,8 +5,9 @@ import store from './store'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import zhCn from "element-plus/lib/locale/lang/zh-cn"
+import actions from "@/qiankun/actions"
 
-import { MicroAppStateActions, initGlobalState, registerMicroApps, start } from 'qiankun'
+import { registerMicroApps, start } from 'qiankun'
 
 createApp(App)
   .use(store)
@@ -20,7 +21,7 @@ registerMicroApps([
     container: '#sub-app',
     activeRule: '/vue2',
     props: {
-      router, store
+      router, actions
     }
   },
   {
@@ -29,20 +30,9 @@ registerMicroApps([
     container: '#sub-app',
     activeRule: '/vue3',
     props: {
-      router, store
+      router, actions
     }
   }
 ])
-
-const actions: MicroAppStateActions = initGlobalState({
-  count: 1
-})
-
-actions.onGlobalStateChange((state, prev) => {
-  // state: 变更后的状态; prev 变更前的状态
-  console.log(state, prev)
-})
-// actions.setGlobalState(state)
-// actions.offGlobalStateChange()
 
 start()

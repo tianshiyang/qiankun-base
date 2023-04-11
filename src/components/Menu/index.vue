@@ -13,7 +13,7 @@
         >
           <el-sub-menu index="1">
             <template #title>
-              <el-icon><location /></el-icon>
+              <el-icon><Location /></el-icon>
               <span>qiankun主应用</span>
             </template>
             <el-menu-item-group>
@@ -23,7 +23,7 @@
           </el-sub-menu>
           <el-sub-menu index="2">
             <template #title>
-              <el-icon><location /></el-icon>
+              <el-icon><Location /></el-icon>
               <span>Vue2 页面</span>
             </template>
             <el-menu-item-group>
@@ -34,6 +34,10 @@
         </el-menu>
       </el-aside>
       <el-main>
+        <div class="header">
+          <h1>主应用的数据 -> 姓名: {{ state.name }}, 数量: {{ state.count }}</h1>
+          <el-button type="danger" @click="changeMainState">改变数据</el-button>
+        </div>
         <div id="sub-app"></div>
         <router-view></router-view>
       </el-main>
@@ -41,19 +45,42 @@
 </template>
 
 <script lang="ts" setup name="index">
-import {
-  Document,
-  Menu as IconMenu,
-  Location,
-  Setting
-} from '@element-plus/icons-vue'
-import { useRoute } from 'vue-router'
-const route = useRoute()
+import { Location } from '@element-plus/icons-vue'
+import actions from "@/qiankun/actions"
+import { ref } from "vue"
 
-const handleOpen = (key: string, keyPath: string[]) => {
+const state = ref()
+actions.getGlobalState(currentState => {
+  state.value = currentState
+})
+
+actions.onGlobalStateChange((currentState: unknown) => {
+  state.value = currentState
+})
+
+const changeMainState = () => {
+  actions.setGlobalState({
+    name: "王武",
+    count: state.value.count + 10
+  })
+}
+
+const handleOpen = () => {
   // console.log(key, keyPath)
 }
-const handleClose = (key: string, keyPath: string[]) => {
+const handleClose = () => {
   // console.log(key, keyPath)
 }
 </script>
+
+<style scoped lang="scss">
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding: 0 10px;
+  border-radius: 10px;
+  background: rgb(51, 154, 223)
+}
+</style>
