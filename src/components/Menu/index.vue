@@ -27,8 +27,8 @@
               <span>Vue2 页面</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item index="2-1" route="/vue2">vue2 页面一</el-menu-item>
-              <el-menu-item index="2-2" route="/vue2/pageOne">vue2 页面二</el-menu-item>
+              <el-menu-item index="2-1" route="/vue2/pageOne">vue2 页面一</el-menu-item>
+              <el-menu-item index="2-2" route="/vue2/pageTwo">vue2 页面二</el-menu-item>
             </el-menu-item-group>
           </el-sub-menu>
           <el-sub-menu index="3">
@@ -37,8 +37,8 @@
               <span>Vue3 页面</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item index="2-1" route="/vue3/pageOne">vue3 页面一</el-menu-item>
-              <el-menu-item index="2-2" route="/vue3/pageTwo">vue3 页面二</el-menu-item>
+              <el-menu-item index="3-1" route="/vue3/pageOne">vue3 页面一</el-menu-item>
+              <el-menu-item index="3-2" route="/vue3/pageTwo">vue3 页面二</el-menu-item>
             </el-menu-item-group>
           </el-sub-menu>
         </el-menu>

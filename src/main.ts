@@ -3,18 +3,18 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
+import '@/style/element-plus/dist/index.css'
 import zhCn from "element-plus/lib/locale/lang/zh-cn"
 import actions from "@/qiankun/actions"
 
-import { loadMicroApp, start, MicroApp } from 'qiankun'
+import { loadMicroApp, MicroApp } from 'qiankun'
 
 createApp(App)
   .use(store)
   .use(ElementPlus, { locale: zhCn })
   .use(router).mount('#app')
 
-let activeMicroApp: MicroApp | null = null
+let activeMicroApp: MicroApp
 // 子应用加载逻辑
 router.beforeEach((to, from, next) => {
   if (to.path.startsWith("/vue3")) {
@@ -27,6 +27,10 @@ router.beforeEach((to, from, next) => {
       container: '#sub-app',
       props: {
         router, actions
+      }
+    }, {
+      sandbox: {
+        // experimentalStyleIsolation: true
       }
     })
   }
@@ -42,9 +46,12 @@ router.beforeEach((to, from, next) => {
       props: {
         router, actions
       }
+    }, {
+      sandbox: {
+        // strictStyleIsolation: true
+        // experimentalStyleIsolation: true
+      }
     })
   }
   next()
 })
-
-start()
