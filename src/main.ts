@@ -3,7 +3,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import ElementPlus from 'element-plus'
-import '@/style/element-plus/dist/index.css'
+// import 'element-plus/dist/index.css'
+import "@/styles/element/element.css" // TODO：目前方案将打包后的ElementCss文件做了前缀替换
 import zhCn from "element-plus/lib/locale/lang/zh-cn"
 import actions from "@/qiankun/actions"
 
