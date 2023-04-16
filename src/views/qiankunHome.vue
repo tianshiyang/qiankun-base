@@ -3,7 +3,7 @@
     <el-breadcrumb-item>qiankun 主页面</el-breadcrumb-item>
   </el-breadcrumb>
 
-  <h1>vue2子应用Router的参数：状态名称 {{ route.query.statusName }}</h1>
+  <h1>vue2子应用Router的参数：状态名称 -> {{ route.query.statusName }}</h1>
 
   <el-form label-position="right" inline label-width="80px" class="form-style" :model="formLabelAlign">
     <el-form-item label="名称">
@@ -78,7 +78,7 @@ const goVue2 = () => {
 
 const goVue3 = () => {
   router.push({
-    path: "/vue3"
+    path: "/vue3/pageOne"
   })
 }
 </script>
