@@ -61,21 +61,26 @@
 <script lang="ts" setup>
 import { Location } from '@element-plus/icons-vue'
 import actions from "@/qiankun/actions"
-import { ref } from "vue"
+import { reactive } from "vue"
 
-const state = ref()
+const state = reactive({
+  name: "",
+  count: 0
+})
 actions.getGlobalState(currentState => {
-  state.value = currentState
+  state.name = currentState.name
+  state.count = currentState.count
 })
 
-actions.onGlobalStateChange((currentState: unknown) => {
-  state.value = currentState
+actions.onGlobalStateChange((currentState) => {
+  state.name = currentState.name
+  state.count = currentState.count
 })
 
 const changeMainState = () => {
   actions.setGlobalState({
     name: "王武",
-    count: state.value.count + 10
+    count: state.count + 10
   })
 }
 
