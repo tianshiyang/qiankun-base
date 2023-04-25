@@ -6,7 +6,7 @@ import ElementPlus from 'element-plus'
 // import 'element-plus/dist/index.css'
 import "@/styles/element/element.css" // TODO：目前方案将打包后的ElementCss文件做了前缀替换
 import zhCn from "element-plus/lib/locale/lang/zh-cn"
-import actions from "@/qiankun/actions"
+import actions from './qiankun/actions'
 
 import { registerMicroApps, start } from 'qiankun'
 
@@ -22,7 +22,8 @@ registerMicroApps([
     container: '#sub-app',
     activeRule: "vue3",
     props: {
-      router, actions
+      router,
+      getGlobalState: actions.getGlobalState
     }
   },
   {
@@ -31,7 +32,8 @@ registerMicroApps([
     container: '#sub-app',
     activeRule: "vue2",
     props: {
-      router, actions
+      router,
+      getGlobalState: actions.getGlobalState
     }
   }
 ])
