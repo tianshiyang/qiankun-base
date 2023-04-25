@@ -67,15 +67,11 @@ const state = reactive({
   name: "",
   count: 0
 })
-actions.getGlobalState(currentState => {
-  state.name = currentState.name
-  state.count = currentState.count
-})
 
 actions.onGlobalStateChange((currentState) => {
   state.name = currentState.name
   state.count = currentState.count
-})
+}, true)
 
 const changeMainState = () => {
   actions.setGlobalState({

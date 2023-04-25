@@ -5,14 +5,6 @@ const initState = {
   count: 200
 }
 
-interface MyMicroAppStateActions extends MicroAppStateActions {
-  getGlobalState: (callback: (currentState: Record<string, any>) => void) => void
-}
-
-const actions: MyMicroAppStateActions = initGlobalState(initState) as MyMicroAppStateActions
-
-actions.getGlobalState = (callback: (state: Record<string, any>) => void) => {
-  callback(initState)
-}
+const actions: MicroAppStateActions = initGlobalState(initState)
 
 export default actions
