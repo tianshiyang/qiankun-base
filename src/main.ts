@@ -3,8 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import ElementPlus from 'element-plus'
-// import 'element-plus/dist/index.css'
-import "@/styles/element/element.css" // TODO：目前方案将打包后的ElementCss文件做了前缀替换
+import 'element-plus/theme-chalk/src/index.scss'
 import zhCn from "element-plus/lib/locale/lang/zh-cn"
 
 import { registerMicroApps, start } from 'qiankun'
