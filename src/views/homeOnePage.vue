@@ -1,5 +1,5 @@
 <template>
-  <div>12323123</div>
+  <div>测试缓存3</div>
 </template>
 
 <script lang="ts" setup>

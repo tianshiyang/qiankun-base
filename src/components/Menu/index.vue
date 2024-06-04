@@ -45,7 +45,7 @@
       </el-aside>
       <el-main>
         <div class="header">
-          <h1>主应用的数据 -> 姓名: {{ state.name }}, 数量: {{ state.count }}</h1>
+          <h1>主应用中的数据 -> 姓名: {{ state.name }}, 数量: {{ state.count }}</h1>
           <el-button type="danger" @click="changeMainState">改变数据</el-button>
         </div>
         <div id="sub-app"></div>

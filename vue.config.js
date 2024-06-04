@@ -9,8 +9,8 @@ module.exports = defineConfig({
         // 这些是公共的scss变量和混合方法等
         additionalData: `
           @use "@/styles/element/index";
-          `,
+          `
       }
     }
-  },
+  }
 })
