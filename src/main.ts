@@ -16,7 +16,7 @@ createApp(App)
 registerMicroApps([
   {
     name: 'qiankun-vue3',
-    entry: '/vue3-app/',
+    entry: process.env.NODE_ENV === 'production' ? '/vue3-app/' : '//localhost:5005',
     container: '#sub-app',
     activeRule: "vue3",
     props: {
