@@ -16,9 +16,9 @@ createApp(App)
 registerMicroApps([
   {
     name: 'qiankun-vue3',
-    entry: "http://62.234.16.180/qiankun-vue3",
+    entry: "http://62.234.16.180/vue3/",
     container: '#sub-app',
-    activeRule: "/vue3",
+    activeRule: "/qiankun-vue3",
     props: {
       router
     }
