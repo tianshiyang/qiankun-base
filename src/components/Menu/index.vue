@@ -27,8 +27,8 @@
               <span>Vue2 页面</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item index="2-1" route="/vue2/pageOne">vue2 页面一</el-menu-item>
-              <el-menu-item index="2-2" route="/vue2/pageTwo">vue2 页面二</el-menu-item>
+              <el-menu-item index="2-1" route="/qiankun-vue2/pageOne">vue2 页面一</el-menu-item>
+              <el-menu-item index="2-2" route="/qiankun-vue2/pageTwo">vue2 页面二</el-menu-item>
             </el-menu-item-group>
           </el-sub-menu>
           <el-sub-menu index="3">
@@ -68,7 +68,7 @@ const state = reactive({
   count: 0
 })
 
-actions.onGlobalStateChange((currentState) => {
+actions.onGlobalStateChange((currentState, prevState) => {
   state.name = currentState.name
   state.count = currentState.count
 }, true)

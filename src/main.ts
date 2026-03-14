@@ -16,22 +16,26 @@ createApp(App)
 registerMicroApps([
   {
     name: 'qiankun-vue3',
-    entry: process.env.NODE_ENV === 'production' ? '/vue3-app/' : '//localhost:5005',
+    entry: "http://62.234.16.180/qiankun-vue3",
     container: '#sub-app',
-    activeRule: "vue3",
+    activeRule: "/vue3",
     props: {
       router
     }
   },
   {
-    name: 'qiankun-vue2', // app name registered
-    entry: '//localhost:4000',
+    name: 'vue2', // app name registered
+    entry: 'http://62.234.16.180/vue2/',
     container: '#sub-app',
-    activeRule: "vue2",
+    activeRule: "/qiankun-vue2",
     props: {
       router
     }
   }
 ])
 // 启动 qiankun
-start()
+start({
+  sandbox: {
+    experimentalStyleIsolation: true
+  }
+})
